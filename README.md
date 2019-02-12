@@ -1,6 +1,8 @@
 # rsup-duration
 Convenient duration time utility
 
+[![npm](https://flat.badgen.net/npm/v/rsup-duration)](https://www.npmjs.com/package/rsup-duration)
+
 ## Install
 ```sh
 npm install rsup-progress
@@ -46,7 +48,7 @@ Returns whether the duration is in progress.
 ### d.start([ms = defaultMs [, force = false]])
 Start time. If already in progress, this call is ignored.
 
-- `ms` - duration time. If not, the `defaultMs` is specified.
+- `ms` - duration time. If not, it is specified as `defaultMs`.
 - `force`  - If `force` is true, stop and new start when time is in progress.
 
 ```js
