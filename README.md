@@ -6,7 +6,7 @@ Convenient duration time utility
 
 ## Install
 ```sh
-npm install rsup-progress
+npm install rsup-duration
 ```
 ```js
 import duration from 'rsup-duration'
