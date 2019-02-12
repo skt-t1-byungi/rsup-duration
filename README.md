@@ -2,6 +2,7 @@
 Convenient duration time utility
 
 [![npm](https://flat.badgen.net/npm/v/rsup-duration)](https://www.npmjs.com/package/rsup-duration)
+[![travis](https://badgen.net/travis/skt-t1-byungi/rsup-duration)](https://travis-ci.org/skt-t1-byungi/rsup-duration)
 
 ## Install
 ```sh
