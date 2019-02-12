@@ -3,7 +3,7 @@ import Deferred from 'p-state-defer'
 export class Duration {
     private _defer: Deferred<void> | null = null
     private _timerId: ReturnType<typeof setTimeout> | null = null
-    private _lastMs: number | null = null
+    private _started = false
 
     constructor (
         private _defaultMs: number = 0
@@ -12,7 +12,7 @@ export class Duration {
     }
 
     get isPast () {
-        return this._lastMs !== null && this._defer === null
+        return this._started && this._defer === null
     }
 
     get isDuring () {
@@ -28,11 +28,12 @@ export class Duration {
             ms = this._defaultMs
         }
 
+        this._started = true
         if (!force && this._defer) return this._defer.promise
 
         this.stop()
         this._defer = new Deferred()
-        this._timerId = setTimeout(this._end, this._lastMs = ms)
+        this._timerId = setTimeout(this._end, ms)
 
         return this._defer.promise
     }
