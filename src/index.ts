@@ -37,11 +37,6 @@ export class Duration {
         return this._defer.promise
     }
 
-    public restart () {
-        if (this._lastMs === null) throw new Error('[rsup-duration] has never been started!')
-        return this.start(this._lastMs, true)
-    }
-
     public stop () {
         if (this._timerId) clearTimeout(this._timerId)
         this._end()
