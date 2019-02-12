@@ -46,6 +46,6 @@ test('default duration time', async t => {
     d.start()
     await pDelay(90)
     t.true(d.isDuring)
-    await pDelay(11)
+    await pDelay(20)
     t.true(d.isPast)
 })
