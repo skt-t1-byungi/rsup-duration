@@ -1,7 +1,7 @@
 {
     "name": "rsup-duration",
     "description": "Convenient duration time utility",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "repository": "https://github.com/skt-t1-byungi/rsup-duration.git",
     "author": "skt-t1-byungi <tiniwz@gmail.com>",
     "main": "dist/index.js",
