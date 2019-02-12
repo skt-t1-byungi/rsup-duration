@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "lib": ["dom", "es2018"],
+        "declaration": true,
+        "outDir": "dist/",
+        "strict": true,
+        "esModuleInterop": true
+    },
+    "files": [
+        "src/index.ts"
+    ]
+}
