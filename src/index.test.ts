@@ -25,7 +25,7 @@ test('awaitable by start()', async t => {
     t.true(d.isPast)
 })
 
-test('awaitable by done()', async t => {
+test('awaitable by waitOnStop()', async t => {
     const d = duration()
     d.start(100)
     await d.waitOnStop()
@@ -88,4 +88,9 @@ test('restart in during', async t => {
     t.true(d.isDuring)
     await pDelay(20)
     t.false(d.isDuring)
+})
+
+test('If restart without ever starting, throws error', t => {
+    const d = duration()
+    t.throws(() => d.restart())
 })
