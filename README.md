@@ -23,7 +23,7 @@ d.start(1000)
 console.log(d.isPast) // => false
 console.log(d.isDuring) // => true
 
-await d.waitOnStop() // Resolved after 1 second.
+await d.onStop() // Resolved after 1 second.
 
 console.log(d.isPast) // => true
 console.log(d.isDuring) // => false
@@ -33,7 +33,7 @@ console.log(d.isPast) // => false
 console.log(d.isDuring) // => true
 
 delay(200).then(()=> d.stop())
-await d.waitOnStop() // Resolved after 200ms.
+await d.onStop() // Resolved after 200ms.
 ```
 
 ## API
@@ -75,10 +75,10 @@ Stop time.
 ```js
 d.start(1000)
 delay(200).then(()=> d.stop())
-await d.waitOnStop() // Resolved after 200ms.
+await d.onStop() // Resolved after 200ms.
 ```
 
-### d.waitOnStop()
+### d.onStop()
 Returns the promise that waits until stop.
 
 ## License

@@ -27,10 +27,10 @@ test('awaitable by start()', async t => {
     t.true(d.isPast)
 })
 
-test('awaitable by waitOnStop()', async t => {
+test('awaitable by onStop()', async t => {
     const d = duration()
     d.start(100)
-    await d.waitOnStop()
+    await d.onStop()
     t.true(d.isPast)
 })
 

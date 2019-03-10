@@ -46,7 +46,7 @@ export class Duration {
         }
     }
 
-    public waitOnStop () {
+    public onStop () {
         return this._defer ? this._defer.promise : Promise.resolve()
     }
 }
