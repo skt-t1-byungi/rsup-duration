@@ -29,7 +29,7 @@
         "prepublishOnly": "npm run test && npm run build"
     },
     "dependencies": {
-        "p-state-defer": "^1.0.1"
+        "@byungi/p-defer": "^0.1.1"
     },
     "devDependencies": {
         "@byungi/p-delay": "^0.1.2",

@@ -1,4 +1,4 @@
-import Deferred from 'p-state-defer'
+import pDefer, { Deferred } from '@byungi/p-defer'
 
 export class Duration {
     private _defer: Deferred<void> | null = null
@@ -26,7 +26,7 @@ export class Duration {
         if (!opts.force && this._defer) return this._defer.promise
 
         this.stop()
-        this._defer = new Deferred()
+        this._defer = pDefer()
         this._timerId = setTimeout(this._end, opts.ms)
 
         return this._defer.promise
@@ -39,10 +39,10 @@ export class Duration {
 
     private _end () {
         this._timerId = null
-        const defer = this._defer
-        if (defer) {
+
+        if (this._defer) {
+            this._defer.resolve()
             this._defer = null
-            defer.resolve()
         }
     }
 
