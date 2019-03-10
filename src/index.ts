@@ -12,11 +12,11 @@ export class Duration {
     }
 
     get isPast () {
-        return this._started && this._defer === null
+        return this._started && this._timerId === null
     }
 
     get isDuring () {
-        return this._defer !== null
+        return this._timerId !== null
     }
 
     public start (opts: number | {ms?: number, force?: boolean} = { ms: this._defaultMs, force: false }) {
@@ -25,7 +25,7 @@ export class Duration {
         this._started = true
         if (!opts.force && this._defer) return this._defer.promise
 
-        this.stop()
+        if (this.isDuring) this.stop()
         this._defer = pDefer()
         this._timerId = setTimeout(this._end, opts.ms)
 
