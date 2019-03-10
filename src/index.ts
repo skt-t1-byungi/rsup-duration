@@ -19,21 +19,15 @@ export class Duration {
         return this._defer !== null
     }
 
-    public start (force?: boolean): Promise<void>
-    public start (ms: number, force?: boolean): Promise<void>
-    public start (ms?: number | boolean, force = false) {
-        if (typeof ms === 'undefined') ms = false
-        if (typeof ms === 'boolean') {
-            force = ms
-            ms = this._defaultMs
-        }
+    public start (opts: number | {ms?: number, force?: boolean} = { ms: this._defaultMs, force: false }) {
+        if (typeof opts === 'number') opts = { ms: opts, force: false }
 
         this._started = true
-        if (!force && this._defer) return this._defer.promise
+        if (!opts.force && this._defer) return this._defer.promise
 
         this.stop()
         this._defer = new Deferred()
-        this._timerId = setTimeout(this._end, ms)
+        this._timerId = setTimeout(this._end, opts.ms)
 
         return this._defer.promise
     }

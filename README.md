@@ -46,8 +46,10 @@ Returns whether the duration has passed.
 ### d.isDuring
 Returns whether the duration is in progress.
 
-### d.start([ms = defaultMs [, force = false]])
+### d.start(options)
 Start time. If already in progress, this call is ignored.
+
+##### options
 
 - `ms` - duration time. If not, it is specified as `defaultMs`.
 - `force`  - If `force` is true, stop and new start when time is in progress.
@@ -56,8 +58,8 @@ Start time. If already in progress, this call is ignored.
 const d = duration(1000)
 d.start() // ms = 1000, force = false
 d.start(500) // ms = 500, force = false
-d.start(500, true) // ms = 500, force = true
-d.start(true) // // ms = 1000, force = true
+d.start({ms: 500}) // ms = 500, force = false
+d.start({ms: 1000, force: true}) // // ms = 1000, force = true
 ```
 
 Returns the promise that waits until stop.

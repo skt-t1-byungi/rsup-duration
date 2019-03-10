@@ -2,6 +2,8 @@ import pDelay from '@byungi/p-delay'
 import test from 'ava'
 import duration from '.'
 
+// tslint:disable: no-floating-promises
+
 test('isDuring, isPast', async t => {
     const d = duration()
     t.false(d.isPast)
@@ -47,5 +49,23 @@ test('default duration time', async t => {
     await pDelay(90)
     t.true(d.isDuring)
     await pDelay(20)
+    t.true(d.isPast)
+})
+
+test('option object', async t => {
+    const d = duration()
+    d.start({ ms: 100 })
+    await pDelay(90)
+    t.true(d.isDuring)
+    await pDelay(20)
+    t.true(d.isPast)
+})
+
+test('force', async t => {
+    const d = duration()
+    d.start(100)
+    await pDelay(50)
+    d.start({ force: true })
+    await pDelay(30)
     t.true(d.isPast)
 })

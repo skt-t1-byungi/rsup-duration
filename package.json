@@ -32,7 +32,7 @@
         "p-state-defer": "^1.0.1"
     },
     "devDependencies": {
-        "@byungi/p-delay": "^0.0.3",
+        "@byungi/p-delay": "^0.1.2",
         "ava": "^1.2.1",
         "ts-node": "^8.0.2",
         "tslint": "^5.12.1",
