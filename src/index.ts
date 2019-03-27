@@ -26,10 +26,15 @@ export class Duration {
         if (!opts.force && this._defer) return this._defer.promise
 
         if (this.isDuring) this.stop()
-        this._defer = pDefer()
-        this._timerId = setTimeout(this._end, opts.ms)
+        const defer = this._defer = pDefer()
 
-        return this._defer.promise
+        if (opts.ms && opts.ms > 0) {
+            this._timerId = setTimeout(this._end, opts.ms)
+        } else {
+            this._end()
+        }
+
+        return defer.promise
     }
 
     public stop () {
