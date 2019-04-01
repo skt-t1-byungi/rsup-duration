@@ -33,11 +33,11 @@
     },
     "devDependencies": {
         "@byungi/p-delay": "^0.1.2",
-        "ava": "^1.2.1",
-        "ts-node": "^8.0.2",
-        "tslint": "^5.12.1",
-        "tslint-config-byungi": "^0.1.0",
-        "typescript": "^3.3.3"
+        "ava": "^1.4.1",
+        "ts-node": "^8.0.3",
+        "tslint": "^5.14.0",
+        "tslint-config-byungi": "^0.1.1",
+        "typescript": "^3.4.1"
     },
     "ava": {
         "compileEnhancements": false,
